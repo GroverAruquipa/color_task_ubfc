@@ -19,7 +19,8 @@ python interface.py
 python tool.py
 python main2.py
 ```
-https://github.com/GroverAruquipa/color_task_ubfc/issues/1#issue-1428487469
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/52639144/198855087-6633204f-cc0c-4e47-8a90-bdd5414c5440.gif)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
