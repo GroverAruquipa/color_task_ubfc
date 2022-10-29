@@ -19,7 +19,7 @@ python interface.py
 python tool.py
 python main2.py
 ```
-
+https://github.com/GroverAruquipa/color_task_ubfc/issues/1#issue-1428487469
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
