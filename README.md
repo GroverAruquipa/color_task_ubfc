@@ -10,9 +10,23 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install cv2, pa
 pip install numpy
 pip install cv2
 pip install pandas
+pip install tkinter
 ```
 
 ## Usage
+
+Main interface for the calibration:
+
+![](images_interfaces_color/main.png)
+
+Color calibration interface:
+
+<img src="images_interfaces_color/calibrate.png" width="300" height="350">
+
+Limit calibration interface:
+
+![](images_interfaces_color/Limits.png)
+
 
 ```python
 python interface.py
