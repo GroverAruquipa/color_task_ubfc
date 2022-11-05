@@ -37,6 +37,15 @@ class App(Frame):
         self.SliderSmax = Scale(self.frame2, from_=0, to=255, orient=HORIZONTAL, command=self.hsvthreshold)
         self.SliderVmin = Scale(self.frame2, from_=0, to=255, orient=HORIZONTAL, command=self.hsvthreshold)
         self.SliderVmax = Scale(self.frame2, from_=0, to=255, orient=HORIZONTAL, command=self.hsvthreshold)
+        #Create label for each slider
+        self.labelHmin = Label(self.frame2, text="Hmin")
+        self.labelHmax = Label(self.frame2, text="Hmax")
+        self.labelSmin = Label(self.frame2, text="Smin")
+        self.labelSmax = Label(self.frame2, text="Smax")
+        self.labelVmin = Label(self.frame2, text="Vmin")
+        self.labelVmax = Label(self.frame2, text="Vmax")
+        
+
         #Create buttons for green, blue, red, yellow, orange, purple, pink, white, black
         self.green = Button(self.frame2, text="Green", command=self.hsvthreshold)
         self.blue = Button(self.frame2, text="Blue", command=self.hsvthreshold)
@@ -48,8 +57,45 @@ class App(Frame):
         self.defv = Button(text='Default values', command=self.hsvthreshold, bg='green', fg='white', font=('helvetica', 9, 'bold'))
         #Button to close the window
         self.close = Button(text='Close', command=self.close_window, bg='brown', fg='white', font=('helvetica', 9, 'bold'))
+        ########INitial condditions slider#############
+        
+        self.SliderHmin.set(0)
+        self.SliderHmax.set(255)
+        self.SliderSmin.set(0)
+        self.SliderSmax.set(255)
+        self.SliderVmin.set(0)
+        self.SliderVmax.set(255)
+        
 
-        self.green.pack()
+        ########INitial condditions slider#############         
+      
+        
+        
+        
+ 
+       
+        
+        #########################################33
+        #self.close.pack()
+        self.pack(fill=BOTH, expand=1)
+        self.frame1.pack(side=LEFT, fill=BOTH, expand=1)
+        self.frame2.pack(side=BOTTOM, fill=BOTH, expand=1)
+        self.display.pack(fill=BOTH, expand=1)
+        self.SliderHmin.pack()
+        self.SliderHmax.pack()
+        self.SliderSmin.pack()
+        self.SliderSmax.pack()
+        self.SliderVmin.pack()
+        self.SliderVmax.pack()
+        self.labelHmin.pack()
+        self.labelHmax.pack()
+        self.labelSmin.pack()
+        self.labelSmax.pack()
+        self.labelVmin.pack()
+        self.labelVmax.pack()
+
+        
+        
         self.blue.pack()
         self.white.pack()
         self.yellow.pack()
@@ -58,16 +104,12 @@ class App(Frame):
         self.pink.pack()
         self.defv.pack()
         self.close.pack()
-        self.display.pack(fill=BOTH, expand=1)
-        self.SliderHmin.pack()
-        self.SliderHmax.pack()
-        self.SliderSmin.pack()
-        self.SliderSmax.pack()
-        self.SliderVmin.pack()
-        self.SliderVmax.pack()
-        self.pack(fill=BOTH, expand=1)
-        self.frame1.pack(fill=BOTH, expand=1)
-        self.frame2.pack()
+
+        ###Organize the buttons
+        
+        
+    
+
         self.bind("<Configure>", self.hsvthreshold)
         #self.bind("<Configure>", self.resize)
     def hsvthreshold(self, *args):
@@ -82,18 +124,30 @@ class App(Frame):
         Smax = self.SliderSmax.get()
         Vmin = self.SliderVmin.get()
         Vmax = self.SliderVmax.get()
+        #intialize values for sliders
+       
         #threshold hsv
         lower = np.array([Hmin,Smin,Vmin])
         upper = np.array([Hmax,Smax,Vmax])
         mask = cv2.inRange(self.hsv, lower, upper)
         #bitwise and mask original image
-        res = cv2.bitwise_and(self.hsv,self.hsv, mask= mask)
+        # convert self.hsv to BGR
+        self.bgr2 = cv2.cvtColor(self.hsv, cv2.COLOR_HSV2BGR)
+        res= cv2.bitwise_and(self.bgr2,self.bgr2, mask= mask)
+        #res=cv2.bitwise_and(self.original,self.original, mask= mask)
         #show thresholded image
         self.image = ImageTk.PhotoImage(Image.fromarray(res))
         #self.image = ImageTk.PhotoImage(Image.fromarray(self.hsv))
         self.display.delete("IMG")
         #display image 
-        self.display.create_image(self.display.winfo_width()/4, self.display.winfo_height()/4, anchor=CENTER, image=self.image, tags="IMG")
+        self.display.create_image(self.display.winfo_width()/1.2, self.display.winfo_height()/1.2, anchor=CENTER, image=self.image, tags="IMG")
+        #change size of image
+        self.resize()
+        self.display.pack(fill=BOTH, expand=1)
+        self.frame1.pack(fill=BOTH, expand=1)
+
+
+
         #get value button for green and save Hmin, Hmax, Smin, Smax, Vmin, Vmax in csv
         #greenvar=self.green.ge
         #obtaing the status of green button
@@ -155,5 +209,9 @@ class App(Frame):
         pass
 
 root = Tk()
+root.geometry("800x600")
+#root.geometry("800x600+300+300")
 app = App(root)
+#change she size of the window
+
 app.mainloop()

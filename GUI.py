@@ -34,7 +34,7 @@ def main():
     os.system('python main2.py')
     
 def comparision():
-    os.system('python compare.py')
+    os.system('python comparehuh.py')
     
     
     
