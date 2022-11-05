@@ -45,10 +45,7 @@ class App(Frame):
         self.orange = Button(self.frame2, text="Orange", command=self.hsvthreshold)
         self.purple = Button(self.frame2, text="Purple", command=self.hsvthreshold)
         self.pink = Button(self.frame2, text="Pink", command=self.hsvthreshold)
-        self.defv = Button(text='Default values', command=self.hsvthreshold, bg='green', fg='white', font=('helvetica', 9, 'bold'))
-        #Button to close the window
-        self.close = Button(text='Close', command=self.close_window, bg='brown', fg='white', font=('helvetica', 9, 'bold'))
-
+        
         self.green.pack()
         self.blue.pack()
         self.white.pack()
@@ -56,8 +53,7 @@ class App(Frame):
         self.orange.pack()
         self.purple.pack()
         self.pink.pack()
-        self.defv.pack()
-        self.close.pack()
+
         self.display.pack(fill=BOTH, expand=1)
         self.SliderHmin.pack()
         self.SliderHmax.pack()
@@ -133,26 +129,13 @@ class App(Frame):
             #Print the values of the sliders
             dfpink.loc[0] = [Hmin, Hmax, Smin, Smax, Vmin, Vmax, 7]
             dfpink.to_csv('pink.csv', index=False)
-        if self.defv['state'] == 'active':
-            print('default')
-            #Print the values of the sliders
-            dfgreen.loc[0] = [25, 91, 75, 250, 86, 255, 3]
-            dfgreen.to_csv('green.csv', index=False)
-            dfblue.loc[0] = [90, 120, 50, 255, 70, 255, 0]
-            dfblue.to_csv('blue.csv', index=False)
-            dfwhite.loc[0] = [90, 133, 35, 115, 160, 255, 0]
-            dfwhite.to_csv('white.csv', index=False)
-            dfyellow.loc[0] = [11, 21, 86, 255, 132, 255, 1]
-            dfyellow.to_csv('yellow.csv', index=False)
-            dforange.loc[0] = [144, 179, 123, 176, 105, 255, 2]
-            dforange.to_csv('orange.csv', index=False)
-            dfpurple.loc[0] = [129, 140, 120, 150, 100, 255, 0]
-            dfpurple.to_csv('purple.csv', index=False)
-            dfpink.loc[0] = [150, 180, 180, 255, 120, 255, 5]
-            dfpink.to_csv('pink.csv', index=False)  
-    def close_window(self):
-        self.master.destroy()
+        
+
         pass
+
+
+
+
 
 root = Tk()
 app = App(root)
