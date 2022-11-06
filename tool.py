@@ -4,6 +4,8 @@ import pandas as pd
 from tkinter import *
 from PIL import Image, ImageTk
 
+############################################
+############## Creating the df files #######
 dfwhite=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'color'])
 dfyellow=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'color'])
 dforange=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'color'])
@@ -11,8 +13,10 @@ dfgreen=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'c
 dfblue=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'color'])
 dfpink=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'color'])
 dfpurple=pd.DataFrame(columns=['hMin', 'hMax', 'sMin', 'sMax', 'vMin', 'vMax', 'color'])
+############################################
 
 class App(Frame):
+    ###The function init hepls to create the window and the sliders
     def __init__(self, master):
         Frame.__init__(self, master)
         self.frame1 = Frame(self)
@@ -65,16 +69,8 @@ class App(Frame):
         self.SliderSmax.set(255)
         self.SliderVmin.set(0)
         self.SliderVmax.set(255)
-        
-
         ########INitial condditions slider#############         
-      
-        
-        
-        
- 
-       
-        
+             
         #########################################33
         #self.close.pack()
         self.pack(fill=BOTH, expand=1)
