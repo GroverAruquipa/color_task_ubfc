@@ -315,5 +315,6 @@ def processImage(img1):
     #combine all the masks
     full_mask=full_maskpk+full_maskpu+full_maskbl+full_maskwh+full_maskoy+full_maskor+full_maskgr
     maskx=full_mask
+    color_mask=[full_maskpk,full_maskpu,full_maskbl,full_maskwh,full_maskoy,full_maskor,full_maskgr ]
     #maskx=full_maskpu#save full_maskpu in maskx
-    return maskx, imaux, listcentersx, listcentersy, listcolor, listsector  
+    return maskx, imaux, listcentersx, listcentersy, listcolor, listsector, color_mask   
