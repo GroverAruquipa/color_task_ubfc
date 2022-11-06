@@ -14,6 +14,7 @@ pip install tkinter
 ```
 
 ## Usage
+Please RUn GUI.py to start the program
 
 Main interface for the calibration:
 
