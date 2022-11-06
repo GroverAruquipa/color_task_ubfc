@@ -17,7 +17,7 @@ pip install tkinter
 
 Main interface for the calibration:
 
-![](images_interfaces_color/main.png)
+![](images_interfaces_color/Calibration_Interface.png)
 
 Color calibration interface:
 
