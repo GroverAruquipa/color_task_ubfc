@@ -19,6 +19,8 @@ while(cap.isOpened()):
         df.to_csv('centers.csv', mode='a', header=False, index=False, encoding='utf-8')#save the centers for the frame in a csv file
         df.to_csv('centers.txt', mode='a', header=False, index=False, encoding='utf-8')#save the centers for the frame in a txt file
         cv2.imshow('frame2',imaux) #show the processed video
+        # imshow maskx
+        cv2.imshow('maskx',maskx) #show the mask
         out.write(imaux) #save the processed video
         if cv2.waitKey(1) & 0xFF == ord('q'):#if the user press q, the video will stop
             cv2.destroyWindow('frame2') #destroy the window

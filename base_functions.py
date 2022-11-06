@@ -312,5 +312,8 @@ def processImage(img1):
             text=str(counter)
             center=countourscounter[i][j]#save countourscounter[i][j] in center
             cv2.putText (imaux, text, (center[0]+20, center[1]+20), cv2.FONT_ITALIC, 0.6, (255, 255, 255), 2, cv2.LINE_AA)#write the number of the center in the image
-    maskx=full_maskpu#save full_maskpu in maskx
+    #combine all the masks
+    full_mask=full_maskpk+full_maskpu+full_maskbl+full_maskwh+full_maskoy+full_maskor+full_maskgr
+    maskx=full_mask
+    #maskx=full_maskpu#save full_maskpu in maskx
     return maskx, imaux, listcentersx, listcentersy, listcolor, listsector  
