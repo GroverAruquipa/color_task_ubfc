@@ -8,17 +8,11 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib import cm
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.figure import Figure
-
-
 ##Creating an interface since this code is to be called from the main GUI
 root= tk.Tk()
 root.title("Comparaison")
-
 mtp.use("TkAgg")  ##Agg rendering to a Tk canvas
-
 canvas = tk.Canvas(root)
-
-
 #read image
 img = cv2.imread('paperEval.png')
 
@@ -45,9 +39,6 @@ ax1.set_xlabel('Blue')     #axis x for blue values
 ax1.set_ylabel('Green')    #axis y for green values
 ax1.set_zlabel('Red')      #axis z for red values
 ax1.set_title('RGB 3D projection')   #set title for the subplot
-
-
-
 ax2 = figure1.add_subplot(122, projection='3d') #devide figure into subplot of x,y,z axes
 ax2.scatter(h, s, v,c=(h+s+v), cmap=cm.jet, marker='.') #scatter plot of HSV data into 3D space
 ####set graph infos####
@@ -55,14 +46,11 @@ ax2.set_xlabel('H')       #axis x for Hue values
 ax2.set_ylabel('S')       #axis y for saturation values
 ax2.set_zlabel('V')       #axis z for Value values
 ax2.set_title('HSV 3D projection') #set title for the subplot
- 
 figure1.suptitle('3D projection comparison', fontsize='xx-large') #set title for the figure
-
 ###Dsiplay results in a Tkinter canvas as a figure hence the use of mtp.use("TkAgg")
 chart1= FigureCanvasTkAgg(figure1, root) #display figure1 containing 3D projections in the main window
 chart1.draw()
 chart1.get_tk_widget().pack(side="top", fill="both",expand="no")  #pack canva and place figure at the top
-
         ################################################
            #illustrate histograms of data dispersion#
         ################################################
@@ -78,9 +66,7 @@ plt.plot(hist_g, color='g', label="g")              #Plot Histogram for green va
 plt.plot(hist_b, color='b', label="b")              #Plot Histogram for red values
 plt.legend()                                        #display legends for each graph
 plt.title('RGB histogram')                          #Set title for subfigure 1
-plt.show()                                          #Plot the 3 histograms in the same figure
-
-    
+plt.show()                                          #Plot the 3 histograms in the same figure 
 his2 = figure2.add_subplot(122)#devide the second figure into two subplots
 #calculate Histograme for HSV data and then store them in seperate arrays 
 hist_h = cv2.calcHist([h],[0],None,[256],[0,256])   #Histogram for Hue values
@@ -92,13 +78,9 @@ plt.plot(hist_v, color='b', label="v")              #Plot Histogram for Values v
 plt.legend()                                        #display legends for each graph
 plt.title('HSV histogram')                          #Set title for subfigure 2
 plt.show()                                          #Plot the 3 histograms in the same figure
-
 figure2.suptitle('Histogram comparison', fontsize='xx-large')  #set title for the figure
-
 ###Dsiplay results in a Tkinter canvas as a figure hence the use of mtp.use("TkAgg")
 chart2= FigureCanvasTkAgg(figure2, root) #display figure1 containing 3D projections in the main window
 chart2.draw()
 chart2.get_tk_widget().pack(side="bottom", fill="both",expand="no") #pack canva and place figure at the top
-
-
 root.mainloop()

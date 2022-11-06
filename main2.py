@@ -1,8 +1,8 @@
-import cv2
-import numpy as np
-import pandas as pd
-from base_functions import *
-import os
+import cv2 #Library for image processing
+import numpy as np #Library for numerical operations
+import pandas as pd #Library for data manipulation
+from base_functions import * #Importing functions from base_functions.py
+import os #Library for operating system functions
 cap = cv2.VideoCapture('paperEval.mp4')#call the video to process
 out=cv2.VideoWriter('result_output.avi',cv2.VideoWriter_fourcc(*'DIVX'), 15, (640,480))#show results on the processed video with shapes and color recognition
 counterframe=1
@@ -20,8 +20,8 @@ while(cap.isOpened()):
         df.to_csv('centers.txt', mode='a', header=False, index=False, encoding='utf-8')#save the centers for the frame in a txt file
         cv2.imshow('frame2',imaux) #show the processed video
         out.write(imaux) #save the processed video
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cv2.destroyWindow('frame2')
+        if cv2.waitKey(1) & 0xFF == ord('q'):#if the user press q, the video will stop
+            cv2.destroyWindow('frame2') #destroy the window
             break
     else:
         break

@@ -1,17 +1,14 @@
 """Final GUI """
-from tkinter import *
-from PIL import Image, ImageTk
-import cv2
-import os 
-import tkinter.filedialog as tkFileDialog
-
+from tkinter import * #Library to create the GUI
+from PIL import Image, ImageTk #Library to display images in the GUI with the help of tkinter
+import cv2 #LIBRARY TO COMPUTER VISION
+import os #LIBRARY FOR THE OPERATION SYSTEM
+import tkinter.filedialog as tkFileDialog #Library to open the file dialog
 def nothing(x):
     pass
-
 """Creat a funtion to select an input image to use as a calibration source
     Calirate the colors and save the calibration data as an output in csv files
     to be used in the main code"""
-
 def select_image():
     # grab a reference to the image panels
     global panelA, panelB
@@ -27,13 +24,10 @@ def select_image():
         #tool script will convert the image to grayscale 
         #detect edges in it, set and save the calibration data
         os.system('python tool.py')  # Open python scrpt command line
-
-        
 #creat function to call limits 
 #code that will allow us to devide the frame into different sections
 def limits(): 
     os.system('python limits.py')   # Open python scrpt command line
-    
 #creat function to the main program to display all the detection and filtering   
 def main(): 
     os.system('python main2.py')    # Open python scrpt command line
@@ -41,15 +35,10 @@ def main():
 #creat function to call the comparison code to display data dispersion    
 def comparision():
     os.system('python comparehuh2.py')  # Open python scrpt command line
-    
-    
-    
 # initialize the window toolkit along with the two image panels
 root = Tk()
 panelA = None
 panelB = None
-
-
 # button to call the video with final results with all the filters applied
 btn3 = Button(root, text="show results", command=main)
 btn3.pack(side="right", fill="both", expand="yes", padx="10", pady="10")
@@ -66,5 +55,4 @@ btn.pack(side="bottom", fill="both", expand="yes", padx="10", pady="10")
 btn2 = Button(root, text="Calibrate 4 Sectors", command=limits)
 btn2.pack(side="bottom", fill="both", expand="yes", padx="10", pady="10")
 # kick off the GUI
-
 root.mainloop()

@@ -3,9 +3,9 @@
     shape detection
     calculating the surface area of each shape
     """
-import cv2
-import numpy as np
-import pandas as pd
+import cv2# Library image processing
+import numpy as np #Library Manipulation of data
+import pandas as pd # Library manipulation of dataframes
 ########### Global values to open and close operations#########
 opnv=30
 clsnv = 25
@@ -313,4 +313,4 @@ def processImage(img1):
             center=countourscounter[i][j]#save countourscounter[i][j] in center
             cv2.putText (imaux, text, (center[0]+20, center[1]+20), cv2.FONT_ITALIC, 0.6, (255, 255, 255), 2, cv2.LINE_AA)#write the number of the center in the image
     maskx=full_maskpu#save full_maskpu in maskx
-    return maskx, imaux, listcentersx, listcentersy, listcolor, listsector
+    return maskx, imaux, listcentersx, listcentersy, listcolor, listsector  
