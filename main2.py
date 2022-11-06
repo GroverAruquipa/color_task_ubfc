@@ -14,7 +14,7 @@ while(cap.isOpened()):
     ret, frame = cap.read()
     frame = cv2.medianBlur(frame, 5)# Eliminate shadows and noise
     if ret==True: #if the video is not over
-        maskx, imaux, listcentersx, listcentersy, listcolor, listsector = processImage(frame)
+        maskx, imaux, listcentersx, listcentersy, listcolor, listsector, color_mask = processImage(frame)
         df = pd.DataFrame({'frame_number': counterframe, 'x': listcentersx, 'y': listcentersy, 'color': listcolor, 'sector': listsector})
         df.to_csv('centers.csv', mode='a', header=False, index=False, encoding='utf-8')#save the centers for the frame in a csv file
         df.to_csv('centers.txt', mode='a', header=False, index=False, encoding='utf-8')#save the centers for the frame in a txt file
