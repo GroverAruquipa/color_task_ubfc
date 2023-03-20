@@ -39,4 +39,10 @@ python main2.py
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update the libraries before appropriate.
+Please make sure to update the libraries before appropriate use.
+
+## Report
+Find the report in the folowing file in the repository:
+ComputerVision2_Report.pdf
+
+
